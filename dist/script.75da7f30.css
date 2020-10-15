@@ -39,26 +39,23 @@ input:hover {
 }
 
 input:focus {
+  outline: none;
   border: 1px solid #2962ff;
   box-shadow: 0 0 0 1px #2962ff;
-  outline: none;
 }
 
 input:disabled {
   border: 1px solid #f2f2f2;
   cursor: not-allowed;
 }
-input:disabled:hover {
-  border: 1px solid #f2f2f2;
-}
 
 .input-error {
   border: 1px solid #d32f2f;
 }
 .input-error:focus {
+  outline: none;
   border: 1px solid #d32f2f;
   box-shadow: 0 0 0 1px #d32f2f;
-  outline: none;
 }
 
 .label-error {

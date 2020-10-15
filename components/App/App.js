@@ -7,7 +7,7 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			value: 'Text',
+			value: 'Value from state',
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}

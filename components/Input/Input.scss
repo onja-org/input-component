@@ -37,25 +37,22 @@ input:hover {
 }
 
 input:focus {
+	outline: none;
 	border: 1px solid #2962ff;
 	box-shadow: 0 0 0 1px #2962ff;
-	outline: none;
 }
 
 input:disabled {
 	border: 1px solid #f2f2f2;
 	cursor: not-allowed;
-	&:hover {
-		border: 1px solid #f2f2f2;
-	}
 }
 
 .input-error {
 	border: 1px solid #d32f2f;
 	&:focus {
+		outline: none;
 		border: 1px solid #d32f2f;
 		box-shadow: 0 0 0 1px #d32f2f;
-		outline: none;
 	}
 }
 
@@ -64,6 +61,8 @@ input:disabled {
 }
 
 //  *** Icons ***
+
+// refactor this with end and start class
 
 .icon--calendar--start {
 	background: url('../../assets/calendar.svg') no-repeat scroll 15px 12px;

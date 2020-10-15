@@ -28377,6 +28377,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
+// es6 desctructuring, and giving default value props
 function Input(_ref) {
   var _ref$label = _ref.label,
       label = _ref$label === void 0 ? 'Label' : _ref$label,
@@ -28403,11 +28404,7 @@ function Input(_ref) {
 
   var inputClasses = error ? "input-error" : "";
   var labelClasses = error ? "label-error" : "";
-  inputClasses = "".concat(inputClasses, " input--").concat(size);
-
-  if (size) {
-    inputClasses = "".concat(inputClasses, " size--").concat(size);
-  }
+  inputClasses = "".concat(inputClasses, " size--").concat(size);
 
   if (fullWidth) {
     inputClasses = "".concat(inputClasses, " full-width");
@@ -28421,7 +28418,7 @@ function Input(_ref) {
     inputClasses = "".concat(inputClasses, " icon--").concat(endIcon, "--end");
   }
 
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("label", {
+  return _react.default.createElement("label", {
     className: labelClasses
   }, label, !multiline ? _react.default.createElement("input", _extends({
     className: inputClasses,
@@ -28433,22 +28430,24 @@ function Input(_ref) {
         handleChange(e.target.value);
       }
     },
-    defaultValue: value
-  }, props)) : _react.default.createElement("textarea", _extends({
+    defau: value
+  }, props)) : // move the textArea into it's own component
+  // TextArea
+  _react.default.createElement("textarea", _extends({
     className: inputClasses,
     type: "text",
     placeholder: placeholder,
     disabled: disabled,
     onChange: function onChange(e) {
       if (handleChange) {
-        handleChange(e.target.value);
+        return handleChange(e.target.value);
       }
     },
     defaultValue: value,
     rows: row
   }, props)), helperText && _react.default.createElement("span", {
     className: 'text-small'
-  }, helperText)));
+  }, helperText));
 }
 },{"react":"node_modules/react/index.js","./Input.scss":"components/Input/Input.scss"}],"components/App/App.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
@@ -28499,7 +28498,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
     _this.state = {
-      value: 'Text'
+      value: 'Value from state'
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
@@ -28597,7 +28596,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65314" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65473" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

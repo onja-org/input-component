@@ -1,0 +1,102 @@
+fieldset {
+	border: none;
+	display: grid;
+	width: 100%;
+}
+
+label {
+	font-size: 0.8rem;
+}
+
+input,
+textarea {
+	display: block;
+	border: 1px solid #828282;
+	padding: 0.8rem;
+	border-radius: 8px;
+	width: 200px;
+	resize: none;
+}
+
+.size--sm {
+	padding: 0.5rem 0.8rem;
+}
+.size--md {
+	padding: 0.8rem;
+}
+.size--lg {
+	padding: 1.4rem 0.8rem;
+}
+
+.full-width {
+	width: 100%;
+}
+
+input:hover {
+	border: 1px solid #333;
+}
+
+input:focus {
+	border: 1px solid #2962ff;
+	box-shadow: 0 0 0 1px #2962ff;
+	outline: none;
+}
+
+input:disabled {
+	border: 1px solid #f2f2f2;
+	cursor: not-allowed;
+	&:hover {
+		border: 1px solid #f2f2f2;
+	}
+}
+
+.input-error {
+	border: 1px solid #d32f2f;
+	&:focus {
+		border: 1px solid #d32f2f;
+		box-shadow: 0 0 0 1px #d32f2f;
+		outline: none;
+	}
+}
+
+.label-error {
+	color: #d32f2f;
+}
+
+//  *** Icons ***
+
+.icon--calendar--start {
+	background: url('../../assets/calendar.svg') no-repeat scroll 15px 12px;
+	padding-left: 38px;
+}
+.icon--calendar--end {
+	background: url('../../assets/calendar.svg') no-repeat scroll right 9% top 47%;
+}
+.icon--check-circled--start {
+	background: url('../../assets/check-circled.svg') no-repeat scroll 15px 12px;
+	padding-left: 38px;
+}
+.icon--check-circled--end {
+	background: url('../../assets/check-circled.svg') no-repeat scroll right 9% top 47%;
+}
+.icon--id-card--start {
+	background: url('../../assets/id-card.svg') no-repeat scroll 15px 12px;
+	padding-left: 38px;
+}
+.icon--id-card--end {
+	background: url('../../assets/id-card.svg') no-repeat scroll right 9% top 47%;
+}
+.icon--lock-closed--start {
+	background: url('../../assets/lock-closed.svg') no-repeat scroll 15px 12px;
+	padding-left: 38px;
+}
+.icon--lock-closed--end {
+	background: url('../../assets/lock-closed.svg') no-repeat scroll right 9% top 47%;
+}
+.icon--magnifying-glass--start {
+	background: url('../../assets/magnifying-glass.svg') no-repeat scroll 15px 12px;
+	padding-left: 38px;
+}
+.icon--magnifying-glass--end {
+	background: url('../../assets/magnifying-glass.svg') no-repeat scroll right 9% top 47%;
+}

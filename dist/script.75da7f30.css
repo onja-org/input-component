@@ -1,0 +1,179 @@
+fieldset {
+  border: none;
+  display: grid;
+  width: 100%;
+}
+
+label {
+  font-size: 0.8rem;
+}
+
+input,
+textarea {
+  display: block;
+  border: 1px solid #828282;
+  padding: 0.8rem;
+  border-radius: 8px;
+  width: 200px;
+  resize: none;
+}
+
+.size--sm {
+  padding: 0.5rem 0.8rem;
+}
+
+.size--md {
+  padding: 0.8rem;
+}
+
+.size--lg {
+  padding: 1.4rem 0.8rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+input:hover {
+  border: 1px solid #333;
+}
+
+input:focus {
+  border: 1px solid #2962ff;
+  box-shadow: 0 0 0 1px #2962ff;
+  outline: none;
+}
+
+input:disabled {
+  border: 1px solid #f2f2f2;
+  cursor: not-allowed;
+}
+input:disabled:hover {
+  border: 1px solid #f2f2f2;
+}
+
+.input-error {
+  border: 1px solid #d32f2f;
+}
+.input-error:focus {
+  border: 1px solid #d32f2f;
+  box-shadow: 0 0 0 1px #d32f2f;
+  outline: none;
+}
+
+.label-error {
+  color: #d32f2f;
+}
+
+.icon--calendar--start {
+  background: url("/calendar.a1d69e9c.svg") no-repeat scroll 15px 12px;
+  padding-left: 38px;
+}
+
+.icon--calendar--end {
+  background: url("/calendar.a1d69e9c.svg") no-repeat scroll right 9% top 47%;
+}
+
+.icon--check-circled--start {
+  background: url("/check-circled.31a05ecc.svg") no-repeat scroll 15px 12px;
+  padding-left: 38px;
+}
+
+.icon--check-circled--end {
+  background: url("/check-circled.31a05ecc.svg") no-repeat scroll right 9% top 47%;
+}
+
+.icon--id-card--start {
+  background: url("/id-card.4fbc42c6.svg") no-repeat scroll 15px 12px;
+  padding-left: 38px;
+}
+
+.icon--id-card--end {
+  background: url("/id-card.4fbc42c6.svg") no-repeat scroll right 9% top 47%;
+}
+
+.icon--lock-closed--start {
+  background: url("/lock-closed.0aee8f90.svg") no-repeat scroll 15px 12px;
+  padding-left: 38px;
+}
+
+.icon--lock-closed--end {
+  background: url("/lock-closed.0aee8f90.svg") no-repeat scroll right 9% top 47%;
+}
+
+.icon--magnifying-glass--start {
+  background: url("/magnifying-glass.4a8b1daa.svg") no-repeat scroll 15px 12px;
+  padding-left: 38px;
+}
+
+.icon--magnifying-glass--end {
+  background: url("/magnifying-glass.4a8b1daa.svg") no-repeat scroll right 9% top 47%;
+}
+@import url('https://fonts.googleapis.com/css?family=Inter:400|Inter:400');
+
+html {
+	font-size: 100%;
+} /*16px*/
+
+body {
+	background-color: #fefefe;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	line-height: 1.65;
+	color: #333;
+}
+
+p {
+	margin-bottom: 1.15rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 2.75rem 0 1.05rem;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	line-height: 1.15;
+}
+
+h1 {
+	margin-top: 0;
+	font-size: 2.488em;
+}
+
+h2 {
+	font-size: 2.074em;
+}
+
+h3 {
+	font-size: 1.728em;
+}
+
+h4 {
+	font-size: 1.44em;
+}
+
+h5 {
+	font-size: 1.2em;
+}
+
+small,
+.text-small {
+	font-size: 0.7em;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+main {
+	padding: 2rem;
+	display: grid;
+	justify-items: left;
+	width: 100%;
+}
+
+
+/*# sourceMappingURL=/script.75da7f30.css.map */

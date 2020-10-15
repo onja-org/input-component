@@ -28285,17 +28285,291 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"script.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"components/Input/Input.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./../../assets/calendar.svg":[["calendar.a1d69e9c.svg","assets/calendar.svg"],"assets/calendar.svg"],"./../../assets/check-circled.svg":[["check-circled.31a05ecc.svg","assets/check-circled.svg"],"assets/check-circled.svg"],"./../../assets/id-card.svg":[["id-card.4fbc42c6.svg","assets/id-card.svg"],"assets/id-card.svg"],"./../../assets/lock-closed.svg":[["lock-closed.0aee8f90.svg","assets/lock-closed.svg"],"assets/lock-closed.svg"],"./../../assets/magnifying-glass.svg":[["magnifying-glass.4a8b1daa.svg","assets/magnifying-glass.svg"],"assets/magnifying-glass.svg"],"_css_loader":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Input/Input.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Input;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Input.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function Input(_ref) {
+  var _ref$label = _ref.label,
+      label = _ref$label === void 0 ? 'Label' : _ref$label,
+      _ref$placeholder = _ref.placeholder,
+      placeholder = _ref$placeholder === void 0 ? 'Placeholder' : _ref$placeholder,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? '' : _ref$value,
+      _ref$helperText = _ref.helperText,
+      helperText = _ref$helperText === void 0 ? '' : _ref$helperText,
+      _ref$handleChange = _ref.handleChange,
+      handleChange = _ref$handleChange === void 0 ? null : _ref$handleChange,
+      error = _ref.error,
+      _ref$disabled = _ref.disabled,
+      disabled = _ref$disabled === void 0 ? null : _ref$disabled,
+      startIcon = _ref.startIcon,
+      endIcon = _ref.endIcon,
+      fullWidth = _ref.fullWidth,
+      _ref$size = _ref.size,
+      size = _ref$size === void 0 ? 'md' : _ref$size,
+      multiline = _ref.multiline,
+      _ref$row = _ref.row,
+      row = _ref$row === void 0 ? 1 : _ref$row,
+      props = _objectWithoutProperties(_ref, ["label", "placeholder", "value", "helperText", "handleChange", "error", "disabled", "startIcon", "endIcon", "fullWidth", "size", "multiline", "row"]);
+
+  var inputClasses = error ? "input-error" : "";
+  var labelClasses = error ? "label-error" : "";
+  inputClasses = "".concat(inputClasses, " input--").concat(size);
+
+  if (size) {
+    inputClasses = "".concat(inputClasses, " size--").concat(size);
+  }
+
+  if (fullWidth) {
+    inputClasses = "".concat(inputClasses, " full-width");
+  }
+
+  if (startIcon) {
+    inputClasses = "".concat(inputClasses, " icon--").concat(startIcon, "--start");
+  }
+
+  if (endIcon) {
+    inputClasses = "".concat(inputClasses, " icon--").concat(endIcon, "--end");
+  }
+
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("label", {
+    className: labelClasses
+  }, label, !multiline ? _react.default.createElement("input", _extends({
+    className: inputClasses,
+    type: "text",
+    placeholder: placeholder,
+    disabled: disabled,
+    onChange: function onChange(e) {
+      if (handleChange) {
+        handleChange(e.target.value);
+      }
+    },
+    defaultValue: value
+  }, props)) : _react.default.createElement("textarea", _extends({
+    className: inputClasses,
+    type: "text",
+    placeholder: placeholder,
+    disabled: disabled,
+    onChange: function onChange(e) {
+      if (handleChange) {
+        handleChange(e.target.value);
+      }
+    },
+    defaultValue: value,
+    rows: row
+  }, props)), helperText && _react.default.createElement("span", {
+    className: 'text-small'
+  }, helperText)));
+}
+},{"react":"node_modules/react/index.js","./Input.scss":"components/Input/Input.scss"}],"components/App/App.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/App/App.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Input = _interopRequireDefault(require("../Input/Input"));
+
+require("./App.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var App = /*#__PURE__*/function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App() {
+    var _this;
+
+    _classCallCheck(this, App);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
+    _this.state = {
+      value: 'Text'
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "handleChange",
+    value: function handleChange(value) {
+      this.setState({
+        value: value
+      });
+      console.log('value in state', this.state.value);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("main", null, _react.default.createElement("h1", null, "Input component"), _react.default.createElement("fieldset", null, "<Input />", _react.default.createElement(_Input.default, {
+        placeholder: "Uncontrolled input"
+      })), _react.default.createElement("fieldset", null, "<Input helperText=\"We added state here\" value={this.state.value} handleChange={this.handleChange} placeholder=\"This is a controlled input\" />", _react.default.createElement(_Input.default, {
+        helperText: "We added state here",
+        value: this.state.value,
+        handleChange: this.handleChange,
+        placeholder: "This is a controlled input"
+      })), _react.default.createElement("fieldset", null, "<Input error helperText=\"This is an error input\" placeholder=\"Write something else\" label=\"This is an error label\"/>", _react.default.createElement(_Input.default, {
+        error: true,
+        helperText: "This is an error input",
+        placeholder: "Write something else",
+        label: "This is an error label"
+      })), _react.default.createElement("fieldset", null, "<Input disabled placeholder=\"Oops\" label=\"This is disabled\"/>", _react.default.createElement(_Input.default, {
+        disabled: true,
+        placeholder: "Oops",
+        label: "This is disabled"
+      })), _react.default.createElement("fieldset", null, "<Input label=\"Schedule an appointment\" startIcon=\"magnifying-glass\"/>", _react.default.createElement(_Input.default, {
+        label: "Schedule an appointment",
+        startIcon: "magnifying-glass"
+      })), _react.default.createElement("fieldset", null, "<Input size=\"sm\"/>", _react.default.createElement(_Input.default, {
+        size: "sm"
+      })), _react.default.createElement("fieldset", null, "<Input size=\"md\"/>", _react.default.createElement(_Input.default, {
+        size: "md"
+      })), _react.default.createElement("fieldset", null, "<Input size=\"lg\" endIcon=\"check-circled\"/>", _react.default.createElement(_Input.default, {
+        size: "lg",
+        endIcon: "check-circled"
+      })), _react.default.createElement("fieldset", null, "<Input fullWidth/>", _react.default.createElement(_Input.default, {
+        fullWidth: true
+      })), _react.default.createElement("fieldset", null, "<Input multiline row=\"4\" error/>", _react.default.createElement(_Input.default, {
+        multiline: true,
+        row: "4",
+        error: true
+      })));
+    }
+  }]);
+
+  return App;
+}(_react.default.Component);
+
+var _default = App;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../Input/Input":"components/Input/Input.js","./App.css":"components/App/App.css"}],"script.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
+var _App = _interopRequireDefault(require("./components/App/App"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render(_react.default.createElement("h1", null, "Hello Onja"), document.getElementById('root'));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+_reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById('root'));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/App/App":"components/App/App.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -28323,7 +28597,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65015" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65314" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
